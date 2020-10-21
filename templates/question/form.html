@@ -30,7 +30,7 @@
 <body>
 
 <div class="js-api-info form">
-    <form action="/" method="POST">
+    <form action="." method="POST">
         {% csrf_token %}
         <h1 class="heading">Question</h1>
         <br>
@@ -47,11 +47,11 @@
         <br>
         <textarea type="text" name='option4'id='option4', placeholder='option4'></textarea>
         <br>
-        <select name="" form="carform">
-            <option value="option1" >Option1</option>
-            <option value="option2" >Option2</option>
-            <option value="option3" >Option3</option>
-            <option value="option4" >Option4</option>
+        <select name="correct">
+            <option type="text" value="option1" >Option1</option>
+            <option type="text" value="option2" >Option2</option>
+            <option type="text" value="option3" >Option3</option>
+            <option type="text" value="option4" >Option4</option>
         </select>
         <br><br>
         <button type="button" id="button-play" class="button fa fa-microphone"></button>
