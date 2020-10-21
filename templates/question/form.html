@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    html, body {
+        padding: 0;
+        margin: 0;
+    }
+    form {
+        background-color : #eaeaea;
+        text-align: center;
+        
+    }
+    .option{
+        text-align: left;
+    }
+    .heading {
+        
+    }
+    #question {
+        width: 600px;
+        height: 100px;
+    }
+</style>
+<body>
+
+<div class="js-api-info form">
+    <form action="/" method="POST">
+        {% csrf_token %}
+        <h1 class="heading">Question</h1>
+        <br>
+        <textarea aria-label="Question" id='question' type="text" name='question'></textarea>
+  
+        
+        <br>
+      
+        <textarea class='option' type="text" name='option1' id='option1', placeholder='option1'></textarea>
+        <br>
+        <textarea type="text" name='option2' id='option2', placeholder='option2'></textarea>
+        <br>
+        <textarea type="text" name='option3' id='option3', placeholder='option3'></textarea>
+        <br>
+        <textarea type="text" name='option4'id='option4', placeholder='option4'></textarea>
+        <br>
+        <select name="" form="carform">
+            <option value="option1" >Option1</option>
+            <option value="option2" >Option2</option>
+            <option value="option3" >Option3</option>
+            <option value="option4" >Option4</option>
+        </select>
+        <br><br>
+        <button type="button" id="button-play" class="button fa fa-microphone"></button>
+        <button type="button" id="button-stop" class="button fa fa-close"></button>
+        <br><br>
+         <button type='submit'>submit</button>
+
+    </form>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+
+      function getfo() {
+      document.getElementById("focus").focus();
+   }
+         function logEvent(string) {    
+             console.log(string);
+         }
+
+         window.SpeechRecognition = window.SpeechRecognition        ||
+                                    window.webkitSpeechRecognition  ||
+                                    null;
+
+         if (!SpeechRecognition) {
+            document.querySelector('.js-api-support').removeAttribute('hidden');
+            document.querySelector('.js-api-info').setAttribute('hidden', '');
+            [].forEach.call(document.querySelectorAll('form button'), function(button) {
+               button.setAttribute('disabled', '');
+            });
+         } else {
+            var recognizer = new SpeechRecognition();
+            var transcipt = document.getElementById('question');
+
+
+        document.getElementById('question').addEventListener('focus', function() {
+            recognizer.stop();
+            transcipt = document.getElementById('question');
+            
+        });
+
+        document.getElementById('option1').addEventListener('focus', function() {
+            recognizer.stop();
+            transcipt = document.getElementById('option1');
+        });
+
+        document.getElementById('option2').addEventListener('focus', function() {
+            recognizer.stop();
+            transcipt = document.getElementById('option2');
+        });
+
+        document.getElementById('option3').addEventListener('focus', function() {
+            recognizer.stop();
+            transcipt = document.getElementById('option3');
+        });
+         document.getElementById('option4').addEventListener('focus', function() {
+            recognizer.stop();
+            transcipt = document.getElementById('option4');
+        });
+
+
+
+       
+            // Start recognising
+            recognizer.addEventListener('result', function(event) {
+               transcipt.textContent = '';
+
+               for (var i = event.resultIndex; i < event.results.length; i++) {
+                  if (event.results[i].isFinal) {
+                     transcipt.textContent = event.results[i][0].transcript;
+                  } else {
+                     transcipt.textContent += event.results[i][0].transcript;
+                  }
+               }
+            });
+
+            // Listen for errors
+            recognizer.addEventListener('error', function(event) {
+               logEvent('Recognition error: ' + event.message);
+            });
+
+            recognizer.addEventListener('end', function() {
+               logEvent('Recognition ended');
+            });
+
+            document.getElementById('button-play').addEventListener('click', function() {
+               transcipt.textContent = ''
+               recognizer.lang = 'en-US';
+               recognizer.interimResults = true
+
+               try {
+                  recognizer.start();
+                  logEvent('Recognition started');
+               } catch(ex) {
+                  logEvent('Recognition error: ' + ex.message);
+               }
+            });
+
+            document.getElementById('button-stop').addEventListener('click', function() {
+               recognizer.stop();
+               logEvent('Recognition stopped');
+            });
+
+         
+         }
+      </script>
+</body>
+
+</html> 
