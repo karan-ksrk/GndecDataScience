@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Question</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link rel="stylesheet" href="{% static 'question/css/styles.css' %} ">
+    <title>Document</title>
+
+ <link rel="stylesheet" href="D:\Projects\Django\DataScience\static\question\css\styles.css">
+
 </head>
 <body>
-
-
+	
     <div id="wrapper">
 		<div class="sidenav">
-        {% for question in questions  %}
-        <div class="ui relaxed divided list">
-            <div class="item">
-                <h3 class="ui red inverted header"><a>{{forloop.count}}{{ question.question }}</a></h3>
-            </div>
-        </div>
-        {% endfor %}
+			<a href="#about">About</a>
+			<a href="#services">Services</a>
+			<a href="#clients">Clients</a>
+			<a href="#contact">Contact</a>
 		  </div>
 		  
 		  <div class="main">
-			<form id="paper" method="post" action=".">
-            {% csrf_token %}
+			<form id="paper" method="get" action="">
+    
             
 				<textarea placeholder="Question." id="question" name="question" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "></textarea>
 				<br>
@@ -36,27 +32,23 @@
 						<div id="margin">Option2: <textarea cols="30" rows="10" id="option2" type="text" name="option2"></textarea></div>
 						<div id="margin">Option3: <textarea cols="30" rows="10" id="option3" type="text" name="option3"></textarea></div>
 						<div id="margin">Option4: <textarea cols="30" rows="10" id="option4" type="text" name="option4"></textarea></div>
-                        <button type="button" id="button-play" class="button fa fa-microphone"></button>
-                        <button type="button" id="button-stop" class="button fa fa-close"></button>
-                        <button id="button"  type='submit'>submit</button>
-                        <br><br>
-                        
+						<input id="button" type="submit" value="Create">
 					</div>
 					<div class="column right" >
 						<label class="container">
-						<input type="radio" value='option1' checked="checked" name="correct">
+						<input type="radio" checked="checked" name="radio">
 						<span class="checkmark"></span>
 						</label>
 						<label class="container">
-						<input type="radio" value='option2' name="correct">
+						<input type="radio" name="radio">
 						<span class="checkmark"></span>
 						</label>
 						<label class="container">
-						<input type="radio" value='option3' name="correct">
+						<input type="radio" name="radio">
 						<span class="checkmark"></span>
 						</label>
 						<label class="container">
-						<input type="radio" value='option4' name="correct">
+						<input type="radio" name="radio">
 						<span class="checkmark"></span>
 						</label>
 					</div>
@@ -76,8 +68,5 @@
         });
 
     </script>
-    <script src=" {% static 'question/js/main.js' %} " ></script>
-
 </body>
-
-</html> 
+</html>

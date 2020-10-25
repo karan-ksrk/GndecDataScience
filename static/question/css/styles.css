@@ -1,0 +1,221 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+
+* {
+outline:none;
+border:none;
+margin:0px;
+padding:0px;
+font-family:Courier, monospace;
+}
+body {
+background:#333 url(https://static.tumblr.com/maopbtg/a5emgtoju/inflicted.png) repeat;        
+}
+#paper {
+color:#FFF;
+font-size:20px;
+}
+#margin {
+margin-left:12px;
+margin-bottom:20px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none; 
+}
+#question {
+width:500px;
+overflow:hidden;
+background-color:#FFF;
+color:#222;
+font-family:Courier, monospace;
+font-weight:normal;
+font-size:24px;
+resize:none;
+line-height:40px;
+padding-left:100px;
+padding-right:100px;
+padding-top:45px;
+padding-bottom:34px;
+background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+background-repeat:repeat-y, repeat;
+-webkit-border-radius:12px;
+border-radius:12px;
+-webkit-box-shadow: 0px 2px 14px #000;
+box-shadow: 0px 2px 14px #000;
+border-top:1px solid #FFF;
+border-bottom:1px solid #FFF;
+}
+#option1, #option2, #option3, #option4 {
+background-color:transparent;
+border-bottom:3px solid #FFF;
+color:#FFF;
+font-size:20px;
+font-family:Courier, monospace;
+height:50px;
+font-weight:bold;
+width:420px;
+}
+#button {
+cursor:pointer;
+margin-top:20px;
+float:right;
+height:40px;
+padding-left:24px;
+padding-right:24px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:bold;
+font-size:20px;
+color:#FFF;
+text-shadow: 0px -1px 0px #000000;
+-webkit-border-radius:8px;
+border-radius:8px;
+border-top:1px solid #FFF;
+-webkit-box-shadow: 0px 2px 14px #000;
+box-shadow: 0px 2px 14px #000;
+background-color: #62add6;
+background-image:url(https://static.tumblr.com/maopbtg/ZHLmgtok7/button.png);
+background-repeat:repeat-x;
+}
+#button:active {
+zoom: 1;
+filter: alpha(opacity=80);
+opacity: 0.8;
+}
+#button:focus {
+zoom: 1;
+filter: alpha(opacity=80);
+opacity: 0.8;
+}
+#wrapper {
+width:700px;
+height:auto;
+margin-left:auto;
+margin-right:auto;
+margin-top:24px;
+margin-bottom:100px;
+}
+
+.column {
+float: left;
+width: 50%;
+}
+
+.left {
+width: 50%;
+}
+
+.right {
+width: 10%;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+
+.container {
+display: block;
+position: relative;
+padding-left: 35px;
+padding-top: 0px;
+padding-bottom: 100px;
+margin-bottom: 12px;
+margin-left: 150px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 25px;
+width: 25px;
+background-color: #eee;
+border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+top: 9px;
+left: 9px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: white;
+}
