@@ -1,24 +1,36 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
 {% block title %}HOME{% endblock title %}
 {% block content %}
     <div class="ui clearing segment">
         <h3 class="ui left floated header">
-        {{user}}
+        <strong>{{user}}</strong>
         </h3>
         <h3 class="ui right floated header">
             <button onclick="window.location.href='{% url 'logout' %}'" class="ui secondary button">Logout</button>
         </h3>
+        <h3 class="ui right floated header">
+            <button onclick="window.location.href='{% url 'create' %}'" class="ui primary button">Add Questions</button>
+        </h3>
     </div>
-    <div class="ui inverted segment">
-        {% for question in questions  %}
-        <div class="ui relaxed divided list">
-            <div class="item">
-                <h3 class="ui red inverted header"><a>{{ question.question }}</a></h3>
-                <h5 class="ui yellow inverted header description">{{ question.timestamp }}</h5>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    <div class="row mb-2 posts">
+			{% for question in questions  %}
+			<div class="col-md-6">
+				<div class="cards">
+					<div class="row no-gutters border rounded  flex-md-row mb-4 shadow-sm h-md-250">
+						<div class="col p-4 d-flex flex-column position-static">
+							<h3 class="my-1"><a href="">{{question.question}} ?</a></h3>
+							<div style="display:flex">
+								{% for tag in question.tags.all %}
+								<a href="" class="mr-1 badge badge-info">#{{ tag }}</a>
+								{% endfor %}
+							</div>
+							<p class="mb-auto">{{post.description}}</p>
+							<p class="mb-auto text-muted">{{question.timestamp}}</p>
+						</div>
+					</div>
+				</div>       
+			</div>
+			{% endfor %}
+		</div>
 
 {% endblock content %}

@@ -29,6 +29,6 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),
     path('', question_list),
-    path('questionCreate/', question_create),
+    path('questionCreate/', question_create, name="create"),
     path('admin/', admin.site.urls),
 ]

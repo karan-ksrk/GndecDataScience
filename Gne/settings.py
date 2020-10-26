@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'question',
     'accounts',
+    'taggit',
 ]
 
 MIDDLEWARE = [
