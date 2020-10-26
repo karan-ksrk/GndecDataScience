@@ -16,7 +16,7 @@
         {% for question in questions  %}
         <div class="ui relaxed divided list">
             <div class="item">
-                <h3 class="ui red inverted header"><a>{{forloop.count}}{{ question.question }}</a></h3>
+                <h3 class="ui red inverted header"><a>{{forloop.counter}} {{ question.question }}</a></h3>
             </div>
         </div>
         {% endfor %}
